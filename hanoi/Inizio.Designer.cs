@@ -1,6 +1,6 @@
 ﻿namespace hanoi
 {
-    partial class Form1
+    partial class Inizio
     {
         /// <summary>
         /// Variabile di progettazione necessaria.
@@ -76,6 +76,7 @@
             this.btn_gioca.TabIndex = 2;
             this.btn_gioca.Text = "Gioca";
             this.btn_gioca.UseVisualStyleBackColor = true;
+            this.btn_gioca.Click += new System.EventHandler(this.btn_gioca_Click);
             // 
             // Form1
             // 

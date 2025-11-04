@@ -10,11 +10,17 @@ using System.Windows.Forms;
 
 namespace hanoi
 {
-    public partial class Form1 : Form
+    public partial class Inizio : Form
     {
-        public Form1()
+        public Inizio()
         {
             InitializeComponent();
+        }
+
+        private void btn_gioca_Click(object sender, EventArgs e)
+        {
+            Gioco g = new Gioco();
+            g.ShowDialog();
         }
     }
 }
