@@ -12,9 +12,6 @@ namespace hanoi
 {
     public partial class Gioco : Form
     {
-        
-
-
         public Gioco()
         {
             InitializeComponent();
@@ -26,6 +23,11 @@ namespace hanoi
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_gioca_Click(object sender, EventArgs e)
         {
 
         }
