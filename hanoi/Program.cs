@@ -16,7 +16,7 @@ namespace hanoi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inizio());
+            Application.Run(new Gioco());
         }
     }
 }

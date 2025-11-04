@@ -46,12 +46,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Inizio.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Inizio.Designer.cs">
-      <DependentUpon>Inizio.cs</DependentUpon>
-    </Compile>
     <Compile Include="Gioco.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,9 +54,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Inizio.resx">
-      <DependentUpon>Inizio.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Gioco.resx">
       <DependentUpon>Gioco.cs</DependentUpon>
     </EmbeddedResource>
