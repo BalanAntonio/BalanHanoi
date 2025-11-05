@@ -21,14 +21,18 @@ namespace hanoi
         List<Panel> dischi2 = new List<Panel>();
         List<Panel> dischi3 = new List<Panel>();
 
-        Color[] colori = new Color[] { Color.Orange, Color.Yellow, Color.Green, Color.LightBlue, Color.Blue, Color.Purple, Color.Red };
+        Color[] colori = new Color[] { Color.Orange, Color.Yellow, Color.Lime, Color.DeepSkyBlue, Color.Blue, Color.Purple, Color.Red };
 
         List<Panel>[] cosi;
-        
+
+        Panel[] sfondi;
+
+        const int intervalloms = 200;
 
         private void Gioco_Load(object sender, EventArgs e)
         {
             cosi = new List<Panel>[] { dischi1, dischi2, dischi3 };
+            sfondi = new Panel[6] { panel1, panel2, panel3, panel4, panel5, panel6 };
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -44,27 +48,53 @@ namespace hanoi
             AlgoritmoHanoi(n - 1, aux, fine, inizio);
         }
 
-        private void Disegna()
-        {
-            pnl_uno.Controls.Clear();
-            pnl_due.Controls.Clear();
-            pnl_tre.Controls.Clear();
+        //private int DueAllaX(int x)
+        //{
+        //    if(x==0) return 0;
+        //    return 2 * DueAllaX(x - 1);
+        //}
 
-            foreach (Panel disco in dischi1) { pnl_uno.Controls.Add(disco); }
-            foreach (Panel disco in dischi2) { pnl_due.Controls.Add(disco); }
-            foreach (Panel disco in dischi3) { pnl_tre.Controls.Add(disco); }
+        private int MosseMinime(int n)
+        {
+            if (n == 1) return 1;
+            return ((int)Math.Pow(2,n-1) + MosseMinime(n-1));
         }
 
-        private void Sposta(List<Panel> inizio, List<Panel> fine)
+        private void Disegna()
+        {
+            
+            pnl_uno.Controls.Clear(); pnl_uno.Controls.Add(sfondi[0]); pnl_uno.Controls.Add(sfondi[1]);
+            pnl_due.Controls.Clear(); pnl_due.Controls.Add(sfondi[2]); pnl_due.Controls.Add(sfondi[3]);
+            pnl_tre.Controls.Clear(); pnl_tre.Controls.Add(sfondi[4]); pnl_tre.Controls.Add(sfondi[5]);
+
+            foreach (Panel disco in dischi1) { pnl_uno.Controls.Add(disco); disco.BringToFront(); }
+            foreach (Panel disco in dischi2) { pnl_due.Controls.Add(disco); disco.BringToFront(); }
+            foreach (Panel disco in dischi3) { pnl_tre.Controls.Add(disco); disco.BringToFront(); }
+        }
+
+        private void Reset()
+        {
+            dischi1.Clear(); dischi2.Clear(); dischi3.Clear();
+            //pnl_uno.Controls.Clear(); pnl_due.Controls.Clear(); pnl_tre.Controls.Clear();
+        }
+
+        private async Task Sposta(List<Panel> inizio, List<Panel> fine)
         {
             Panel temp = inizio[inizio.Count - 1];
             inizio.RemoveAt(inizio.Count - 1);
             temp.Location = new Point(temp.Location.X, pnl_uno.Size.Height - 16 - 16 * (fine.Count+1));
             fine.Add(temp);
+            Disegna();
+
+            System.Threading.Thread.Sleep(1000);
         }
 
         private void btn_gioca_Click(object sender, EventArgs e)
         {
+            btn_avvia.Enabled = true;
+            Reset();
+            lbl_minime.Text = $"Mosse minime: {MosseMinime((int)nmr_dischi.Value)}";
+
             for(int i=0;i<nmr_dischi.Value;i++)
             {
                 Panel nuovo = new Panel();
@@ -73,8 +103,14 @@ namespace hanoi
                 nuovo.Location = new Point(pnl_uno.Size.Width / 2 - nuovo.Size.Width/2, pnl_uno.Size.Height-16- 16 * (i + 1));
                 dischi1.Add(nuovo);
             }
-            AlgoritmoHanoi((int)nmr_dischi.Value, 0, 2, 1);
             Disegna();
+        }
+
+        private void btn_avvia_Click(object sender, EventArgs e)
+        {
+            btn_avvia.Enabled = false;
+            AlgoritmoHanoi((int)nmr_dischi.Value, 0, 2, 1);
+            
         }
     }
 }

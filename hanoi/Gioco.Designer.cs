@@ -40,9 +40,8 @@
             this.btn_gioca = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nmr_dischi = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.lbl_minime = new System.Windows.Forms.Label();
+            this.btn_avvia = new System.Windows.Forms.Button();
             this.pnl_uno.SuspendLayout();
             this.pnl_due.SuspendLayout();
             this.pnl_tre.SuspendLayout();
@@ -60,8 +59,8 @@
             // pnl_uno
             // 
             this.pnl_uno.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.pnl_uno.Controls.Add(this.panel2);
             this.pnl_uno.Controls.Add(this.panel1);
+            this.pnl_uno.Controls.Add(this.panel2);
             this.pnl_uno.Location = new System.Drawing.Point(12, 12);
             this.pnl_uno.Name = "pnl_uno";
             this.pnl_uno.Size = new System.Drawing.Size(200, 353);
@@ -130,7 +129,7 @@
             // btn_gioca
             // 
             this.btn_gioca.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.btn_gioca.Location = new System.Drawing.Point(738, 82);
+            this.btn_gioca.Location = new System.Drawing.Point(730, 135);
             this.btn_gioca.Name = "btn_gioca";
             this.btn_gioca.Size = new System.Drawing.Size(41, 38);
             this.btn_gioca.TabIndex = 5;
@@ -141,7 +140,7 @@
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Noto Sans Lao", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(660, 55);
+            this.label1.Location = new System.Drawing.Point(652, 108);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(119, 24);
             this.label1.TabIndex = 4;
@@ -152,7 +151,7 @@
             // nmr_dischi
             // 
             this.nmr_dischi.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.nmr_dischi.Location = new System.Drawing.Point(663, 82);
+            this.nmr_dischi.Location = new System.Drawing.Point(655, 135);
             this.nmr_dischi.Maximum = new decimal(new int[] {
             7,
             0,
@@ -172,44 +171,35 @@
             0,
             0});
             // 
-            // label2
+            // lbl_minime
             // 
-            this.label2.Font = new System.Drawing.Font("Noto Sans Lao", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(630, 127);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(180, 49);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Mosse eseguite: X";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl_minime.Font = new System.Drawing.Font("Noto Sans Lao", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_minime.Location = new System.Drawing.Point(630, 176);
+            this.lbl_minime.Name = "lbl_minime";
+            this.lbl_minime.Size = new System.Drawing.Size(180, 49);
+            this.lbl_minime.TabIndex = 7;
+            this.lbl_minime.Text = "Mosse minime: X";
+            this.lbl_minime.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label3
+            // btn_avvia
             // 
-            this.label3.Font = new System.Drawing.Font("Noto Sans Lao", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(630, 176);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(180, 49);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Mosse minime: X";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.button1.Location = new System.Drawing.Point(633, 228);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(170, 34);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Gioca";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btn_avvia.Enabled = false;
+            this.btn_avvia.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
+            this.btn_avvia.Location = new System.Drawing.Point(633, 228);
+            this.btn_avvia.Name = "btn_avvia";
+            this.btn_avvia.Size = new System.Drawing.Size(170, 34);
+            this.btn_avvia.TabIndex = 8;
+            this.btn_avvia.Text = "Avvia";
+            this.btn_avvia.UseVisualStyleBackColor = true;
+            this.btn_avvia.Click += new System.EventHandler(this.btn_avvia_Click);
             // 
             // Gioco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(811, 372);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.btn_avvia);
+            this.Controls.Add(this.lbl_minime);
             this.Controls.Add(this.btn_gioca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nmr_dischi);
@@ -238,9 +228,8 @@
         private System.Windows.Forms.Button btn_gioca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nmr_dischi;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_minime;
+        private System.Windows.Forms.Button btn_avvia;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel5;
