@@ -30,23 +30,23 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pnl_uno = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnl_due = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.pnl_tre = new System.Windows.Forms.Panel();
+            this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.btn_gioca = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.nmr_dischi = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel5 = new System.Windows.Forms.Panel();
             this.pnl_uno.SuspendLayout();
             this.pnl_due.SuspendLayout();
             this.pnl_tre.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_dischi)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -67,6 +67,14 @@
             this.pnl_uno.Size = new System.Drawing.Size(200, 353);
             this.pnl_uno.TabIndex = 1;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel2.Location = new System.Drawing.Point(0, 337);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 16);
+            this.panel2.TabIndex = 1;
+            // 
             // pnl_due
             // 
             this.pnl_due.BackColor = System.Drawing.SystemColors.ButtonHighlight;
@@ -76,6 +84,14 @@
             this.pnl_due.Name = "pnl_due";
             this.pnl_due.Size = new System.Drawing.Size(200, 353);
             this.pnl_due.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel3.Location = new System.Drawing.Point(0, 337);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 16);
+            this.panel3.TabIndex = 2;
             // 
             // panel4
             // 
@@ -94,6 +110,14 @@
             this.pnl_tre.Name = "pnl_tre";
             this.pnl_tre.Size = new System.Drawing.Size(200, 353);
             this.pnl_tre.TabIndex = 2;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panel5.Location = new System.Drawing.Point(0, 337);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 16);
+            this.panel5.TabIndex = 2;
             // 
             // panel6
             // 
@@ -125,24 +149,24 @@
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // numericUpDown1
+            // nmr_dischi
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.numericUpDown1.Location = new System.Drawing.Point(663, 82);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            10,
+            this.nmr_dischi.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
+            this.nmr_dischi.Location = new System.Drawing.Point(663, 82);
+            this.nmr_dischi.Maximum = new decimal(new int[] {
+            7,
             0,
             0,
             0});
-            this.numericUpDown1.Minimum = new decimal(new int[] {
+            this.nmr_dischi.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(69, 38);
-            this.numericUpDown1.TabIndex = 3;
-            this.numericUpDown1.Value = new decimal(new int[] {
+            this.nmr_dischi.Name = "nmr_dischi";
+            this.nmr_dischi.Size = new System.Drawing.Size(69, 38);
+            this.nmr_dischi.TabIndex = 3;
+            this.nmr_dischi.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -178,30 +202,6 @@
             this.button1.Text = "Gioca";
             this.button1.UseVisualStyleBackColor = true;
             // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel2.Location = new System.Drawing.Point(0, 337);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 16);
-            this.panel2.TabIndex = 1;
-            // 
-            // panel3
-            // 
-            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel3.Location = new System.Drawing.Point(0, 337);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 16);
-            this.panel3.TabIndex = 2;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panel5.Location = new System.Drawing.Point(0, 337);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(200, 16);
-            this.panel5.TabIndex = 2;
-            // 
             // Gioco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -212,7 +212,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.btn_gioca);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.nmr_dischi);
             this.Controls.Add(this.pnl_tre);
             this.Controls.Add(this.pnl_due);
             this.Controls.Add(this.pnl_uno);
@@ -222,7 +222,7 @@
             this.pnl_uno.ResumeLayout(false);
             this.pnl_due.ResumeLayout(false);
             this.pnl_tre.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nmr_dischi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,7 +237,7 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Button btn_gioca;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nmr_dischi;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button button1;
