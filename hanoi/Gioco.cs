@@ -23,14 +23,25 @@ namespace hanoi
 
         Color[] colori = new Color[] { Color.Orange, Color.Yellow, Color.Green, Color.LightBlue, Color.Blue, Color.Purple, Color.Red };
 
+        List<Panel>[] cosi;
+        
+
         private void Gioco_Load(object sender, EventArgs e)
         {
-            
+            cosi = new List<Panel>[] { dischi1, dischi2, dischi3 };
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void AlgoritmoHanoi(int n, int inizio,int fine, int aux)
+        {
+            if (n == 1) { Sposta(cosi[inizio], cosi[fine]); return; }
+            AlgoritmoHanoi(n - 1, inizio, aux, fine);
+            Sposta(cosi[inizio], cosi[fine]);
+            AlgoritmoHanoi(n - 1, aux, fine, inizio);
         }
 
         private void Disegna()
@@ -62,9 +73,7 @@ namespace hanoi
                 nuovo.Location = new Point(pnl_uno.Size.Width / 2 - nuovo.Size.Width/2, pnl_uno.Size.Height-16- 16 * (i + 1));
                 dischi1.Add(nuovo);
             }
-            Sposta(dischi1, dischi2);
-            Sposta(dischi1, dischi3);
-            Sposta(dischi2, dischi3);
+            AlgoritmoHanoi((int)nmr_dischi.Value, 0, 2, 1);
             Disegna();
         }
     }
