@@ -27,12 +27,11 @@ namespace hanoi
 
         Panel[] sfondi;
 
-        const int intervalloms = 200;
-
         private void Gioco_Load(object sender, EventArgs e)
         {
             cosi = new List<Panel>[] { dischi1, dischi2, dischi3 };
             sfondi = new Panel[6] { panel1, panel2, panel3, panel4, panel5, panel6 };
+            nmr_dischi_ValueChanged(null, EventArgs.Empty);
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -89,28 +88,30 @@ namespace hanoi
             System.Threading.Thread.Sleep(1000);
         }
 
-        private void btn_gioca_Click(object sender, EventArgs e)
-        {
-            btn_avvia.Enabled = true;
-            Reset();
-            lbl_minime.Text = $"Mosse minime: {MosseMinime((int)nmr_dischi.Value)}";
-
-            for(int i=0;i<nmr_dischi.Value;i++)
-            {
-                Panel nuovo = new Panel();
-                nuovo.BackColor = colori[i];
-                nuovo.Size = new Size(180 - i * 20, 16);
-                nuovo.Location = new Point(pnl_uno.Size.Width / 2 - nuovo.Size.Width/2, pnl_uno.Size.Height-16- 16 * (i + 1));
-                dischi1.Add(nuovo);
-            }
-            Disegna();
-        }
+        
 
         private void btn_avvia_Click(object sender, EventArgs e)
         {
             btn_avvia.Enabled = false;
             AlgoritmoHanoi((int)nmr_dischi.Value, 0, 2, 1);
             
+        }
+
+        private void nmr_dischi_ValueChanged(object sender, EventArgs e)
+        {
+            btn_avvia.Enabled = true;
+            Reset();
+            lbl_minime.Text = $"Mosse minime: {MosseMinime((int)nmr_dischi.Value)}";
+
+            for (int i = 0; i < nmr_dischi.Value; i++)
+            {
+                Panel nuovo = new Panel();
+                nuovo.BackColor = colori[i];
+                nuovo.Size = new Size(180 - i * 20, 16);
+                nuovo.Location = new Point(pnl_uno.Size.Width / 2 - nuovo.Size.Width / 2, pnl_uno.Size.Height - 16 - 16 * (i + 1));
+                dischi1.Add(nuovo);
+            }
+            Disegna();
         }
     }
 }

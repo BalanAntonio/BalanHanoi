@@ -37,7 +37,6 @@
             this.pnl_tre = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.btn_gioca = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.nmr_dischi = new System.Windows.Forms.NumericUpDown();
             this.lbl_minime = new System.Windows.Forms.Label();
@@ -126,32 +125,21 @@
             this.panel6.Size = new System.Drawing.Size(16, 286);
             this.panel6.TabIndex = 0;
             // 
-            // btn_gioca
-            // 
-            this.btn_gioca.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.btn_gioca.Location = new System.Drawing.Point(730, 135);
-            this.btn_gioca.Name = "btn_gioca";
-            this.btn_gioca.Size = new System.Drawing.Size(41, 38);
-            this.btn_gioca.TabIndex = 5;
-            this.btn_gioca.Text = "✓";
-            this.btn_gioca.UseVisualStyleBackColor = true;
-            this.btn_gioca.Click += new System.EventHandler(this.btn_gioca_Click);
-            // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Noto Sans Lao", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(652, 108);
+            this.label1.Location = new System.Drawing.Point(649, 143);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(119, 24);
+            this.label1.Size = new System.Drawing.Size(64, 24);
             this.label1.TabIndex = 4;
-            this.label1.Text = "Dischi";
+            this.label1.Text = "Dischi:";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // nmr_dischi
             // 
             this.nmr_dischi.Font = new System.Drawing.Font("Noto Sans Lao", 14F, System.Drawing.FontStyle.Bold);
-            this.nmr_dischi.Location = new System.Drawing.Point(655, 135);
+            this.nmr_dischi.Location = new System.Drawing.Point(719, 135);
             this.nmr_dischi.Maximum = new decimal(new int[] {
             7,
             0,
@@ -170,6 +158,7 @@
             0,
             0,
             0});
+            this.nmr_dischi.ValueChanged += new System.EventHandler(this.nmr_dischi_ValueChanged);
             // 
             // lbl_minime
             // 
@@ -200,7 +189,6 @@
             this.ClientSize = new System.Drawing.Size(811, 372);
             this.Controls.Add(this.btn_avvia);
             this.Controls.Add(this.lbl_minime);
-            this.Controls.Add(this.btn_gioca);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nmr_dischi);
             this.Controls.Add(this.pnl_tre);
@@ -225,7 +213,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel pnl_tre;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Button btn_gioca;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown nmr_dischi;
         private System.Windows.Forms.Label lbl_minime;
