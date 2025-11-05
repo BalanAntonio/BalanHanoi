@@ -33,7 +33,20 @@ namespace hanoi
 
         }
 
+        private void Disegna()
+        {
+            foreach (Panel disco in dischi1) { pnl_uno.Controls.Add(disco); }
+            foreach (Panel disco in dischi2) { pnl_due.Controls.Add(disco); }
+            foreach (Panel disco in dischi3) { pnl_tre.Controls.Add(disco); }
+        }
 
+        private void Sposta(List<Panel> inizio, List<Panel> fine)
+        {
+            Panel temp = inizio[inizio.Count - 1];
+            inizio.RemoveAt(inizio.Count - 1);
+            temp.Location = new Point(temp.Location.X, pnl_uno.Size.Height - 16 - 16 * (fine.Count+1));
+            fine.Add(temp);
+        }
 
         private void btn_gioca_Click(object sender, EventArgs e)
         {
@@ -45,6 +58,8 @@ namespace hanoi
                 nuovo.Location = new Point(pnl_uno.Size.Width / 2 - nuovo.Size.Width/2, pnl_uno.Size.Height-16- 16 * (i + 1));
                 dischi1.Add(nuovo);
             }
+            Sposta(dischi1, dischi2);
+            Disegna();
         }
     }
 }
