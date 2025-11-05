@@ -35,6 +35,10 @@ namespace hanoi
 
         private void Disegna()
         {
+            pnl_uno.Controls.Clear();
+            pnl_due.Controls.Clear();
+            pnl_tre.Controls.Clear();
+
             foreach (Panel disco in dischi1) { pnl_uno.Controls.Add(disco); }
             foreach (Panel disco in dischi2) { pnl_due.Controls.Add(disco); }
             foreach (Panel disco in dischi3) { pnl_tre.Controls.Add(disco); }
@@ -59,6 +63,8 @@ namespace hanoi
                 dischi1.Add(nuovo);
             }
             Sposta(dischi1, dischi2);
+            Sposta(dischi1, dischi3);
+            Sposta(dischi2, dischi3);
             Disegna();
         }
     }
