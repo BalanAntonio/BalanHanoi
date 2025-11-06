@@ -55,8 +55,7 @@ namespace hanoi
 
         private int MosseMinime(int n)
         {
-            if (n == 1) return 1;
-            return ((int)Math.Pow(2,n-1) + MosseMinime(n-1));
+            return ((int)Math.Pow(2,n)-1);
         }
 
         private void Disegna()
@@ -85,7 +84,7 @@ namespace hanoi
             fine.Add(temp);
             Disegna();
 
-            System.Threading.Thread.Sleep(1000);
+            System.Threading.Thread.Sleep(250);
         }
 
         
